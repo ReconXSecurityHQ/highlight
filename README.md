@@ -28,9 +28,20 @@ git clone https://github.com/ReconXSecurityHQ/highlight.git
 2. **Run setup and reload the source script:**
 
 ```bash
-chmod +x setup.sh
-./setup.sh
+chmod +x setup
+./setup
 source ~/.bashrc
+```
+**in case you encounter this:**
+
+```bash
+$ ./setup
+-bash: ./setup: cannot execute: required file not found
+```
+
+**just try to run this and reload the source**
+```bash
+dos2unix setup; ./setup
 ```
 
 ## Usage
