@@ -7,6 +7,29 @@ MAGENTA="\033[35m"
 RED="\033[31m"
 BLUE="\033[34m"
 
+# Function to display usage information
+usage() {
+    echo "Usage: highlight < file"
+    echo "       <command> | highlight"
+    echo "Description: A script to highlight specific patterns in log files or text streams."
+    echo "Patterns highlighted include:"
+    echo "  - IPv4 addresses"
+    echo "  - IPv6 addresses"
+    echo "  - Subnet masks"
+    echo "  - URLs"
+    echo "  - Domains with ports"
+    echo "  - Common network ports"
+    echo "  - Important script details"
+    echo "  - Text inside parentheses"
+    echo "  - HTML tags and attributes"
+    exit 1
+}
+
+# Check if input is provided
+if [ -t 0 ] && [ $# -eq 0 ]; then
+    usage
+fi
+
 highlight() {
     awk -v RESET="$RESET" -v CYAN="$CYAN" -v GREEN="$GREEN" -v YELLOW="$YELLOW" -v MAGENTA="$MAGENTA" -v RED="$RED" -v BLUE="$BLUE" '
         {
