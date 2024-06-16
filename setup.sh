@@ -18,15 +18,16 @@ fi
 
 # Check if highlight.sh already exists in ~/bin
 if [ -f "$HIGHLIGHT" ]; then
-    echo "highlight.sh already exists in $BIN_DIR. Skipping copying."
-else
-    cp highlight.sh "$HIGHLIGHT"
-    echo "Copied highlight.sh to $HIGHLIGHT"
+    rm "$HIGHLIGHT"
 fi
+
+cp highlight.sh "$HIGHLIGHT"
 
 if ! line_exists_in_file "$HIGHLIGHT" "$BASHRC"; then
     echo -e "\n# Source the highlight.sh script" >> "$BASHRC"
     echo "source $HIGHLIGHT" >> "$BASHRC"
 fi
 
-echo "setup completed successfully."
+if source ~/.bashrc; then
+    echo "highlight successfully register to source"
+fi
