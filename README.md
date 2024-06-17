@@ -1,4 +1,4 @@
-## OUTPUT HIGHLIGHTER FOR TERMINAL
+## HIGHLIGHT TOOLS FOR TERMINAL
 
 `highlight` is a script designed to highlight specific patterns in log files or text streams using ANSI escape codes for colorization. It can detect and highlight patterns such as URLs, domains, IPv4 addresses, IPv6 addresses, subnets, ports, categories, HTML tags, and more.
 
