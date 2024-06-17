@@ -1,23 +1,19 @@
 #!/bin/bash
-RESET="\033[0m"
-CYAN="\033[36m"
-GREEN="\033[32m"
-YELLOW="\033[33m"
-MAGENTA="\033[35m"
-RED="\033[31m"
-BLUE="\033[34m"
-
 highlight() {
-    # Function to display usage information
-    usage() {
+    
+    RESET="\033[0m"
+    CYAN="\033[36m"
+    GREEN="\033[32m"
+    YELLOW="\033[33m"
+    MAGENTA="\033[35m"
+    RED="\033[31m"
+    BLUE="\033[34m"
+    
+    # Check if input is provided
+    if [ -t 0 ] && [ $# -eq 0 ]; then
         echo "Usage: "
         echo "1. highlight < file"
         echo "2. <command> | highlight"
-    }
-
-    # Check if input is provided
-    if [ -t 0 ] && [ $# -eq 0 ]; then
-        usage
         return 1
     fi
 
